@@ -1,44 +1,31 @@
 .select {
     --unit-height: 25px;
     --collective-height: 125px;
-    border: .1em solid rgb(107, 107, 107);
-    background-color: rgb(226, 226, 226);
-    border-radius: .2em;
-    display: inline-block;
-    max-height: var(--unit-height);
 
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
+    >span {
+        background-color: #D0D0D7;
+        border: .1em solid #676774;
+        border-radius: .25em;
+        display: inline-block;
+        padding: .2em;
+        cursor: pointer;
 
-    option {
-        padding-left: 1.4em;
-
-        &:hover {
-            background-color: rgb(207, 207, 207);
+        &::before {
+            content: '⌄';
+            margin-right: .5em;
         }
+
     }
 
-    select {
-        display: none;
-    }
-
-    &::after {
-        content: '⌄';
+    .list {
+        opacity: 0;
+        background-color: #D0D0D7;
+        border: .1em solid #676774;
+        border-radius: .25em;
         position: absolute;
-        left: 0;
-        top: 0;
-    }
 
-    &:hover {
-        background-color: rgb(207, 207, 207);
-    }
-
-    &.active {
-        max-height: var(--collective-height);
-        position: absolute;
-        &:hover {
-            background-color: rgb(226, 226, 226);
+        select {
+            display: none;
         }
     }
 }
