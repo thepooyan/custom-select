@@ -1,0 +1,44 @@
+.select {
+    --unit-height: 25px;
+    --collective-height: 125px;
+    border: .1em solid rgb(107, 107, 107);
+    background-color: rgb(226, 226, 226);
+    border-radius: .2em;
+    display: inline-block;
+    max-height: var(--unit-height);
+
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+
+    option {
+        padding-left: 1.4em;
+
+        &:hover {
+            background-color: rgb(207, 207, 207);
+        }
+    }
+
+    select {
+        display: none;
+    }
+
+    &::after {
+        content: '⌄';
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    &:hover {
+        background-color: rgb(207, 207, 207);
+    }
+
+    &.active {
+        max-height: var(--collective-height);
+        position: absolute;
+        &:hover {
+            background-color: rgb(226, 226, 226);
+        }
+    }
+}
