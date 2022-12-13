@@ -1,16 +1,24 @@
-export function initCustomSelect(className='select') {
-    document.querySelectorAll(`.${className}`).forEach(select => {
-      select.innerHTML = `<select>${select.innerHTML}</select>`;
+export function initCustomSelect(className='custom') {
+    document.querySelectorAll(`select.${className}`).forEach(select => {
+      
+      let wrapper = document.createElement('div');
+      wrapper.classList.add('select');
+      let clone = select.cloneNode(true);
+      wrapper.appendChild(clone)
+      select.replaceWith(wrapper);
+      select = wrapper.querySelector('select');
+      
     
       let options = select.querySelectorAll('option');
       let active = options[0];
       let tag = document.createElement('span');
       let list = document.createElement('div');
+
       list.classList.add('list');
-      let valueKeep = select.querySelector('select');
+      wrapper.value = active.value;
     
       tag.onclick = _ => {
-        select.classList.toggle('active');
+        wrapper.classList.toggle('active');
       }
       tag.innerText = active.innerHTML;
     
@@ -19,15 +27,16 @@ export function initCustomSelect(className='select') {
         span.innerHTML = option.innerHTML;
     
         span.onclick = _ => {
-          select.classList.remove('active');
+          wrapper.classList.remove('active');
           tag.innerHTML = option.innerHTML;
-          valueKeep.value = option.value;
+          select.value = option.value;
+          wrapper.value = option.value;
         }
     
         list.appendChild(span);
       })
     
-      select.appendChild(tag);
-      select.appendChild(list)
+      wrapper.appendChild(tag);
+      wrapper.appendChild(list)
     })
   }
