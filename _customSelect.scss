@@ -63,7 +63,7 @@
     }
 
     select {
-        display: none;
+        display: none !important;
     }
 
     &.active {
