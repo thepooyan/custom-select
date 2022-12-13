@@ -5,8 +5,7 @@ export function initCustomSelect(className = 'select') {
     let tag = document.createElement('span');
     let list = document.createElement('div');
     let select = wrapper.querySelector('select');
-    let active = Object.values(options).find(opt=>opt.value===select.value);
-    console.log(active);
+    let active = Object.values(options).find(opt => opt.value === select.value);
 
     list.classList.add('list');
     wrapper.value = active.value;
@@ -28,11 +27,13 @@ export function initCustomSelect(className = 'select') {
 
     wrapper.appendChild(tag);
     wrapper.appendChild(list);
-    document.onclick = e => {
+    console.log('on click');
+    
+    document.addEventListener("click", e => {
       if (wrapper.contains(e.target))
-      wrapper.classList.toggle('active')
+        wrapper.classList.toggle('active')
       else
-      wrapper.classList.remove('active')
-    }
+        wrapper.classList.remove('active')
+    })
   })
 }
