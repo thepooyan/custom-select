@@ -10,10 +10,6 @@ export function initCustomSelect(className = 'select') {
 
     list.classList.add('list');
     wrapper.value = active.value;
-
-    wrapper.onclick = _ => {
-      wrapper.classList.toggle('active');
-    }
     tag.innerText = active.innerHTML;
 
     options.forEach(option => {
@@ -31,6 +27,12 @@ export function initCustomSelect(className = 'select') {
     })
 
     wrapper.appendChild(tag);
-    wrapper.appendChild(list)
+    wrapper.appendChild(list);
+    document.onclick = e => {
+      if (wrapper.contains(e.target))
+      wrapper.classList.toggle('active')
+      else
+      wrapper.classList.remove('active')
+    }
   })
 }
