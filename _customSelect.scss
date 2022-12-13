@@ -2,7 +2,6 @@
     display: inline-block;
     position: relative;
     direction: rtl;
-
     background-color: #E9E9ED;
     border: .1em solid #8F8F9D;
     border-radius: .25em;
@@ -10,6 +9,8 @@
     padding-left: 1.4em;
     cursor: pointer;
     user-select: none;
+    transition: .2s;
+    font-size: 1em;
 
     &::after {
         content: "";
@@ -28,6 +29,7 @@
         top: 0;
         bottom: 0;
         margin: auto 3em auto 2.3em;
+        transition: inherit;
     }
 
     &:hover {
@@ -47,7 +49,8 @@
         width: 100%;
         position: absolute;
         right: 0;
-        top: 105%;
+        top: 80%;
+        transition: inherit;
 
         span {
             display: block;
@@ -70,6 +73,11 @@
         .list {
             opacity: 100;
             visibility: visible;
+            top: calc(100% + 0.2em);
+        }
+
+        &::after {
+            transform: rotate(225deg)
         }
     }
 }
