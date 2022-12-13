@@ -17,7 +17,7 @@ export function initCustomSelect(className='custom') {
       list.classList.add('list');
       wrapper.value = active.value;
     
-      tag.onclick = _ => {
+      wrapper.onclick = _ => {
         wrapper.classList.toggle('active');
       }
       tag.innerText = active.innerHTML;
@@ -27,7 +27,6 @@ export function initCustomSelect(className='custom') {
         span.innerHTML = option.innerHTML;
     
         span.onclick = _ => {
-          wrapper.classList.remove('active');
           tag.innerHTML = option.innerHTML;
           select.value = option.value;
           wrapper.value = option.value;
