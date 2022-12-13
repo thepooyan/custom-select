@@ -44,10 +44,11 @@
         position: absolute;
         z-index: 100;
         padding: .2em 0;
-
+        width: max-content;
       
 
-        option {
+        span {
+            display: block;
             text-align: right;
             padding: .15em .4em;
             cursor: pointer;
@@ -62,7 +63,7 @@
     select {
         display: none;
     }
-    
+
     &.active {
         .list {
             opacity: 100;
