@@ -51,6 +51,8 @@
         right: 0;
         top: 80%;
         transition: inherit;
+        max-height: 60vh;
+        overflow: scroll;
 
         span {
             display: block;
