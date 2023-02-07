@@ -28,7 +28,6 @@ export function initCustomSelect(className = 'select') {
 
     wrapper.appendChild(tag);
     wrapper.appendChild(list);
-    console.log('on click');
     
     document.addEventListener("click", e => {
       if (wrapper.contains(e.target))
