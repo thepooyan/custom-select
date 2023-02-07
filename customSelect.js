@@ -1,5 +1,6 @@
 export function initCustomSelect(className = 'select') {
   document.querySelectorAll(`.${className}`).forEach(wrapper => {
+    if (wrapper.alreadyInit) return
 
     let options = wrapper.querySelectorAll('option');
     let tag = document.createElement('span');
@@ -35,5 +36,6 @@ export function initCustomSelect(className = 'select') {
       else
         wrapper.classList.remove('active')
     })
+    wrapper.alreadyInit = true;
   })
 }
